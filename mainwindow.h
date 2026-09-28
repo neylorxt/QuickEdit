@@ -17,7 +17,13 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+
+public slots:
+    void onItemClicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
+
+    QString folderPath;
 };
 #endif // MAINWINDOW_H

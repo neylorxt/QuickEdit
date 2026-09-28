@@ -82,3 +82,27 @@ CMakeLists.txt.user*
 .uic/
 /build*/
 /.qtcreator/
+
+# AI assistants and agents (local tooling, not part of the project)
+AGENTS.md
+CLAUDE.md
+.claude/
+.cursor/
+.cursorrules
+.windsurf/
+.windsurfrules
+.aider*
+.continue/
+.continueignore
+.gemini/
+.opencode/
+opencode.json
+opencode.jsonc
+.mcp.json
+.argent/
+.qodo/
+.roo/
+.roomodes
+.clinerules
+.github/copilot-instructions.md
+.github/instructions/
