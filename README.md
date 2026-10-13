@@ -7,7 +7,7 @@ The project is open source and beginner-friendly: whether you are a senior
 engineer, a student, or this is your very first fork, you are welcome to open an
 issue or a pull request.
 
----
+![QuickEdit preview](preview.png)
 
 ## Features
 
@@ -17,7 +17,8 @@ issue or a pull request.
   opening a duplicate.
 - Save the content of the current tab back to disk (`File > Save`).
 - Create a new empty file in the opened folder (`File > New File`).
-- Closable tabs.
+- Create a new folder inside the opened folder (`File > New Folder`).
+- Close tabs with the small "x" button.
 - All user-visible strings go through `tr()`; a French translation file
   (`QuickEdit_fr_FR.ts`) is ready to be filled in.
 
@@ -111,10 +112,7 @@ Guidelines:
 
 ## Known issues and roadmap
 
-- Closing a tab does nothing: `tabCloseRequested` is connected inside
-  `MainWindow::~MainWindow()` instead of the constructor.
-- `Open File`, `New Folder`, and `Save As` are present in the menu but not
-  implemented yet.
+- `Open File` and `Save As` are not implemented yet.
 - There is no prompt for unsaved changes when a tab is closed.
 - Translations are not embedded in the executable yet; the interface stays in
   English even when a translation is available.

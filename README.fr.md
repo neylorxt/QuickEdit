@@ -8,6 +8,8 @@ Le projet est open source et accessible aux débutants : que vous soyez ingénie
 confirmé, étudiant, ou que ce soit votre tout premier fork, vous êtes bienvenu
 pour ouvrir une issue ou une pull request.
 
+![Aperçu de QuickEdit](preview.png)
+
 ---
 
 ## Fonctionnalités
@@ -20,7 +22,8 @@ pour ouvrir une issue ou une pull request.
   doublon.
 - Enregistrer le contenu de l'onglet courant sur le disque (`File > Save`).
 - Créer un nouveau fichier vide dans le dossier ouvert (`File > New File`).
-- Onglets fermables.
+- Créer un nouveau dossier dans le dossier ouvert (`File > New Folder`).
+- Fermer les onglets avec le petit bouton « x ».
 - Toutes les chaînes visibles par l'utilisateur passent par `tr()` ; le fichier
   de traduction française (`QuickEdit_fr_FR.ts`) est prêt à être rempli.
 
@@ -121,10 +124,7 @@ Règles :
 
 ## Problèmes connus et feuille de route
 
-- Fermer un onglet ne fait rien : `tabCloseRequested` est connecté dans
-  `MainWindow::~MainWindow()` au lieu du constructeur.
-- `Open File`, `New Folder` et `Save As` sont présents dans le menu mais pas
-  encore implémentés.
+- `Open File` et `Save As` ne sont pas encore implémentés.
 - Aucune confirmation n'est demandée en cas de modifications non enregistrées
   lors de la fermeture d'un onglet.
 - Les traductions ne sont pas encore intégrées à l'exécutable ; l'interface
