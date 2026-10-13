@@ -131,17 +131,64 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    // Create New Folder
+    connect( ui->actionNew_Folder, &QAction::triggered, this, [=](){
 
-}
+        if (folderPath.isEmpty()) {
+            return;
+        }
 
-MainWindow::~MainWindow()
-{
+        bool ok;
+        QString folderName = QInputDialog::getText(
+            this,
+            tr("New Folder"),           // Popup Title
+            tr("Folder name :"),        // Texte au-dessus du champ
+            QLineEdit::Normal,          // Mode d'affichage
+            "new_folder",               // Texte par défaut
+            &ok                         // Devient 'true' si l'utilisateur clique sur OK
+            );
+
+        if (ok && !folderName.isEmpty()) {
+
+            // Sécurité : On assemble le chemin complet du nouveau dossier
+            QString fullPath = folderPath + "/" + folderName;
+
+            // On utilise QDir pour manipuler les dossiers
+            QDir dir;
+
+            // mkpath crée le dossier et tous les sous-dossiers parents si nécessaire
+            if (dir.mkpath(fullPath)) {
+
+                // Message de confirmation dans la barre de statut
+                statusBar()->showMessage("Folder created : " + folderName, 2000);
+
+            } else {
+                QMessageBox::critical(this, "Error", "Unable to create the folder.\nCheck permissions or special characters.");
+            }
+        }
+
+    } );
+
+    // 1. Be sure to click the close buttons (the small “x” icons)
+    ui->tabs->setTabsClosable(true);
 
     connect(ui->tabs, &QTabWidget::tabCloseRequested, this, [=](int index) {
         QWidget *w = ui->tabs->widget(index);
         ui->tabs->removeTab(index); // Hides the tab from view
         delete w;                  // Cleanly removes the QTextEdit from memory
     });
+
+
+}
+
+MainWindow::~MainWindow()
+{
+
+    // connect(ui->tabs, &QTabWidget::tabCloseRequested, this, [=](int index) {
+    //     QWidget *w = ui->tabs->widget(index);
+    //     ui->tabs->removeTab(index); // Hides the tab from view
+    //     delete w;                  // Cleanly removes the QTextEdit from memory
+    // });
 
     delete ui;
 

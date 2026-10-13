@@ -84,7 +84,6 @@
     <addaction name="actionOpen_Folder"/>
     <addaction name="separator"/>
     <addaction name="actionSave"/>
-    <addaction name="actionSave_As"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
